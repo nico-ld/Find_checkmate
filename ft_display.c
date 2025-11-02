@@ -4,7 +4,7 @@
    ,----(     ..    )		Author : nico-ld
   /      \__     __/	
  /|         (\  |(			Creation date :	01-11-2025 17:52 
-^ \	  /___\  /\ |			Last update : 02-11-2025 12:26                 
+^ \	  /___\  /\ |			Last update : 02-11-2025 14:44                 
    |__|   |__|-''
 \* ==================================================== */
 
@@ -23,11 +23,6 @@
 	1 | r n b q k b n r
 
  */
-
-void	ft_putchar(char	c)
-{
-	write (1, &c, 1);
-}
 
 void	ft_display_board(char *chessboard)
 {
