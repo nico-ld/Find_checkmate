@@ -4,7 +4,7 @@
    ,----(     ..    )		Author : nico-ld
   /      \__     __/	
  /|         (\  |(			Creation date :	01-11-2025 17:52 
-^ \	  /___\  /\ |			Last update : 02-11-2025 12:26                 
+^ \	  /___\  /\ |			Last update : 02-11-2025 22:24                 
    |__|   |__|-''
 \* ==================================================== */
 
@@ -13,43 +13,49 @@
 /*
 		A B C D E F G H
 	   ________________
-	8 | R N B Q K B N R
-	7 | P P P P P P P P
-	6 | x x x x x x x x
-	5 | x x x x x x x x
-	4 | x x x x x x x x
-	3 | x x x x x x x x
-	2 | p p p p p p p p
-	1 | r n b q k b n r
+	8 | r n b q k b n r
+	7 | p p p p p p p p
+	6 | . . . . . . . .
+	5 | . . . . . . . .
+	4 | . . . . P . . .
+	3 | . . . . . . . .
+	2 | P P P P . P P P
+	1 | R N B Q K B N R
+
+rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 
 
  */
 
-void	ft_putchar(char	c)
+void	ft_display_fen(char *fen)
 {
-	write (1, &c, 1);
-}
-
-void	ft_display_board(char *chessboard)
-{
-	int	i;
 	int	row;
+	int	empty;
+	int	i;
 
-	i = 0;
 	row = 8;
-	write (1, "    A B C D E F G H\n", 20);
-	write (1, "   ________________\n", 20);
+	printf("    A B C D E F G H\n");
+	printf("   ________________\n");
 	while (row > 0)
 	{
-		ft_putchar(row + '0');
-		write (1, " |", 2);
-		row--;
-		while ((i + 1) % 8 != 0)
+		printf("%d |", row--);
+		while (fen[i] && fen[i] != '/')
 		{
-			ft_putchar(' ');
-			ft_putchar(chessboard[i++]);
+			if (ft_isdigit(fen[i]))
+			{
+				while (empty++ < fen[i] - '0')
+					printf(" .");
+			}
+			else
+				printf(" %c", fen[i]);
+			i++;
+			empty = 0;
 		}
-		ft_putchar(' ');
-		ft_putchar(chessboard[i++]);
-		ft_putchar('\n');
+		printf("\n");
+		i++;
 	}
+}
+
+int	main()
+{
+	ft_display_fen("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR");
 }
