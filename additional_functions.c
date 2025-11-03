@@ -4,7 +4,7 @@
    ,----(     ..    )		Author : nico-ld
   /      \__     __/	
  /|         (\  |(			Creation date :	02-11-2025 14:45 
-^ \	  /___\  /\ |			Last update : 02-11-2025 17:40                 
+^ \	  /___\  /\ |			Last update : 02-11-2025 22:09                 
    |__|   |__|-''
 \* ==================================================== */
 
@@ -30,6 +30,11 @@ void	ft_putstr(const char *s, size_t n)
 	write (1, s, n);
 }
 
+int	ft_isdigit(const char c)
+{
+	return (c >= '0' && c <= '9');
+}
+
 int	ft_strncmp(char *s1, char *s2, size_t n)
 {
 	size_t	i;
@@ -37,5 +42,5 @@ int	ft_strncmp(char *s1, char *s2, size_t n)
 	i = 0;
 	while (s1[i] && s1[i] == s2[i] && i < n)
 		i++;
-	return (s2[i] - s2[i]);
+	return (s2[i] - s1[i]);
 }

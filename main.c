@@ -4,16 +4,23 @@
    ,----(     ..    )		Author : nico-ld
   /      \__     __/	
  /|         (\  |(			Creation date :	01-11-2025 17:39 
-^ \	  /___\  /\ |			Last update : 02-11-2025 17:51                 
+^ \	  /___\  /\ |			Last update : 03-11-2025 11:23                 
    |__|   |__|-''
 \* ==================================================== */
 
 #include "checkmate.h"
 
-char	*main_menu(void)
+/*
+
+Need to make a first version of 
+ft_valid_board() -> juste looking for a complete board (all square and good amount of piece)
+
+ */
+
+char	*main_menu(void) // Too many lines
 {
 	int		board_ok;
-	//char	choice;
+	char	choice;
 	char	*input;
 
 	input = calloc(65, sizeof(char));
@@ -34,11 +41,15 @@ char	*main_menu(void)
 			input = NULL;
 			return (NULL);
 		}
-		printf("%s", input);
+		else if (ft_valid_chessboard(input))
+		{
+			printf("Is this chessboard OK ?\n");
+			ft_display_fen(input);
+			scanf("%c", &choice);
+		}
+		else
+			printf("\nSomething going wrong with your input. Please try again.\n");
 	}
-	//scanf("%64s", chessboard);
-	//printf("\nIs this correct ?\n");
-	//ft_display_board(chessboard);
 	return (NULL);
 }
 
