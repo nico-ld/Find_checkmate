@@ -4,31 +4,28 @@
    ,----(     ..    )		Author : nico-ld
   /      \__     __/	
  /|         (\  |(			Creation date :	01-11-2025 17:39 
-^ \	  /___\  /\ |			Last update : 03-11-2025 11:23                 
+^ \	  /___\  /\ |			Last update : 03-11-2025 21:02                 
    |__|   |__|-''
 \* ==================================================== */
 
 #include "checkmate.h"
 
 /*
-
-Need to make a first version of 
-ft_valid_board() -> juste looking for a complete board (all square and good amount of piece)
-
- */
-
-char	*main_menu(void) // Too many lines
+board_input()
+	Any param.
+	return the chessboard, or NULL if allocation FAIL or user abort.
+*/
+char	*board_input(void)
 {
 	int		board_ok;
-	char	choice;
+	int		abort;
 	char	*input;
 
 	input = calloc(65, sizeof(char));
 	if (!input)
 		return (NULL);
-	printf("Please enter you're chessboard in this FEN format :\n");
-	printf("Type 'help' for help menu or 'quit' to abort.");
-	board_ok = 0;
+	board_ok = False;
+	abort = False;
 	while (!board_ok)
 	{
 		printf("\n>>> ");
@@ -36,29 +33,30 @@ char	*main_menu(void) // Too many lines
 		if (ft_strncmp(input, "help", 4) == 0)
 			main_help();
 		else if (ft_strncmp(input, "quit", 4) == 0)
-		{
-			free(input);
-			input = NULL;
 			return (NULL);
-		}
-		else if (ft_valid_chessboard(input))
-		{
-			printf("Is this chessboard OK ?\n");
-			ft_display_fen(input);
-			scanf("%c", &choice);
-		}
+		else if (ft_valid_chessboard(input, &abort))
+			board_ok = True;
 		else
-			printf("\nSomething going wrong with your input. Please try again.\n");
+		{
+			if (abort)
+				return (NULL);
+			printf("\nPlease select a good chessboard.");
+		}
 	}
-	return (NULL);
+	return (input);
 }
 
 int	main(void)
 {
 	char	*chessboard;
 
-	chessboard = main_menu();
+	printf("Please enter you're chessboard in this FEN format :\n");
+	printf("Type 'help' for help menu or 'quit' to abort.");
+	chessboard = board_input();
 	if (!chessboard)
+	{
+		free (chessboard);
 		return (0);
+	}
 	return (0);
 }

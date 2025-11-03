@@ -4,7 +4,7 @@
    ,----(     ..    )		Author : nico-ld
   /      \__     __/	
  /|         (\  |(			Creation date :	01-11-2025 17:52 
-^ \	  /___\  /\ |			Last update : 02-11-2025 22:24                 
+^ \	  /___\  /\ |			Last update : 03-11-2025 19:44                 
    |__|   |__|-''
 \* ==================================================== */
 
@@ -53,9 +53,4 @@ void	ft_display_fen(char *fen)
 		printf("\n");
 		i++;
 	}
-}
-
-int	main()
-{
-	ft_display_fen("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR");
 }

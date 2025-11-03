@@ -4,7 +4,7 @@
    ,----(     ..    )		Author : nico-ld
   /      \__     __/	
  /|         (\  |(			Creation date :	02-11-2025 14:45 
-^ \	  /___\  /\ |			Last update : 02-11-2025 22:09                 
+^ \	  /___\  /\ |			Last update : 03-11-2025 20:51                 
    |__|   |__|-''
 \* ==================================================== */
 
@@ -20,11 +20,6 @@ size_t	ft_strlen(const char *s)
 	return(len);
 }
 
-void	ft_putchar(const char c)
-{
-	write (1, &c,1);
-}
-
 void	ft_putstr(const char *s, size_t n)
 {
 	write (1, s, n);
@@ -33,6 +28,34 @@ void	ft_putstr(const char *s, size_t n)
 int	ft_isdigit(const char c)
 {
 	return (c >= '0' && c <= '9');
+}
+
+int	ft_islower(const char c)
+{
+	return (c >= 'a' && c <= 'z');
+}
+
+char	ft_tolower(char c)
+{
+	if (!ft_islower(c))
+		c += 32;
+	return (c);
+}
+
+int	ft_ispiece(const char c)
+{
+	char	*pieces;
+	int		i;
+
+	pieces = "rnbqkpi";
+	i = 0;
+	while (pieces[i])
+	{
+		if (pieces[i] == ft_tolower(c))
+			return (True);
+		i++;
+	}
+	return (False);
 }
 
 int	ft_strncmp(char *s1, char *s2, size_t n)
