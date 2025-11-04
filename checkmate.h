@@ -6,7 +6,7 @@
    =\ T /=
     / ^ \			Creation date : 01-11-2025 17:40 
    /\\ //\
- __\ " " /__		Last update : 03-11-2025 20:25 
+ __\ " " /__		Last update : 04-11-2025 21:37 
 (____/^\____)
 \* *********************************************** */
 
@@ -27,7 +27,6 @@
 
 void	ft_display_fen(char *fen);
 size_t	ft_strlen(const char *s);
-void	ft_putstr(const char *s, size_t n);
 void	main_help(void);
 char	ft_tolower(char c);
 int		ft_strncmp(char *s1, char *s2, size_t n);
@@ -35,5 +34,12 @@ int		ft_isdigit(const char c);
 int		ft_valid_chessboard(char *fen, int *abort);
 int		ft_ispiece(const char c);
 int		ft_islower(const char c);
+
+typedef struct s_list
+{
+	char			piece;
+	int				count;
+	struct s_list	*next;
+}	p_list;
 
 #endif
