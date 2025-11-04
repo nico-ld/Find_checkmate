@@ -4,7 +4,7 @@
    ,----(     ..    )		Author : nico-ld
   /      \__     __/	
  /|         (\  |(			Creation date :	02-11-2025 14:45 
-^ \	  /___\  /\ |			Last update : 03-11-2025 20:51                 
+^ \	  /___\  /\ |			Last update : 04-11-2025 21:05                 
    |__|   |__|-''
 \* ==================================================== */
 
@@ -18,11 +18,6 @@ size_t	ft_strlen(const char *s)
 	while (s[len])
 		len++;
 	return(len);
-}
-
-void	ft_putstr(const char *s, size_t n)
-{
-	write (1, s, n);
 }
 
 int	ft_isdigit(const char c)

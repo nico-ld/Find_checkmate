@@ -4,7 +4,7 @@
    ,----(     ..    )		Author : nico-ld
   /      \__     __/	
  /|         (\  |(			Creation date :	03-11-2025 18:40 
-^ \	  /___\  /\ |			Last update : 03-11-2025 21:00                 
+^ \	  /___\  /\ |			Last update : 04-11-2025 22:31                 
    |__|   |__|-''
 \* ==================================================== */
 
@@ -42,6 +42,30 @@ static int	ft_confirm(char *fen, int *abort)
 	return (True);
 }
 
+int	ft_check_piece(char c)
+{
+	static p_list	*head = NULL;
+	p_list			*current;
+	p_list			*new_node;
+
+	if (!ft_ispiece(c))
+		return (False);
+	current = head;
+	while (current != NULL)
+	{
+		if (current->piece == c)
+			current->count++;
+			return (True);
+	}
+	new_node = ft_lstnew(c);
+	if (!new)
+	{
+		ft_lstclear(&head);
+		return (False);
+	}
+	ft_lstadd_fornt(&head, new_node);
+}
+
 /*
 ft_valid_chessboard()
 	Take in param the chessboard in FEN format.
@@ -66,7 +90,7 @@ int	ft_valid_chessboard(char *fen, int *abort)
 				return (False);
 			squares += fen[i] - '0';
 		}
-		else if (ft_ispiece(fen[i]))
+		else if (ft_check_piece(fen[i]))
 			squares++;
 		else if (fen[i] != '/')
 			return (False);
