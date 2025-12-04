@@ -6,7 +6,7 @@
    =\ T /=
     / ^ \			Creation date : 01-11-2025 17:40 
    /\\ //\
- __\ " " /__		Last update : 10-11-2025 11:31 
+ __\ " " /__		Last update : 04-12-2025 19:41 
 (____/^\____)
 \* *********************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "resources/ft_printf_fd/ft_printfd.h"
 
 # ifndef True
 #  define True 1
