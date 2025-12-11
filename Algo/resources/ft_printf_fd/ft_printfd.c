@@ -4,7 +4,7 @@
    ,----(     ..    )		Author : nico-ld
   /      \__     __/	
  /|         (\  |(			Creation date :	01-11-2025 17:52 
-^ \	  /___\  /\ |			Last update : 04-12-2025 19:44                 
+^ \	  /___\  /\ |			Last update : 11-12-2025 17:36                 
    |__|   |__|-''
 \* ==================================================== */
 
@@ -46,7 +46,7 @@ static int	ft_conditional_format(int fd, va_list ap, char type) // This function
 	return (len);
 }
 
-int	ft_printf(int fd, const char *str, ...) // This function need to be review to understand fd
+int	ft_printfd(int fd, const char *str, ...) // This function need to be review to understand fd
 {
 	va_list	ap;
 	int		i;
